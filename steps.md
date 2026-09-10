@@ -34,10 +34,3 @@
 
 18. **Run `python app.py`** — Start the complete CloudOps Sentinel Self-RAG application.
 
-19. **Test Private Knowledge Base** — Ask: **“Our checkout API started returning 502 errors after a production deployment. What should the on-call engineer check first?”** This should retrieve relevant evidence from the Pinecone private knowledge base.
-
-20. **Test Persistent Memory** — In the same session, ask: **“What should I check next if that doesn’t solve the issue?”** This demonstrates LangGraph SQLite persistence and conversation context using the same `thread_id`.
-
-21. **Test Internet Search Fallback** — Ask: **“What are the latest recommended troubleshooting steps for Kubernetes ImagePullBackOff errors?”** This should demonstrate: **Pinecone → No Relevant Evidence → Query Rewrite → Tavily Internet Search → Grade → IsSUP → IsUSE → Final Answer**.
-
-22. **Test Dynamic Knowledge-Base Update** — Upload a new PDF, DOCX, Markdown, or TXT runbook from the UI, add it to the existing Pinecone knowledge base, and then ask a question from the newly uploaded document to verify immediate retrieval.
