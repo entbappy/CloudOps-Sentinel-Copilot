@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CloudOps Sentinel · Self-RAG Incident Copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="shell">
+    <aside class="rail">
+      <a class="brand" href="/">
+        <div class="mark"><span></span><span></span><span></span></div>
+        <div><strong>CloudOps Sentinel</strong><small>SELF-RAG INCIDENT COPILOT</small></div>
+      </a>
+
+      <div class="rail-label">CONTROL CENTER</div>
+      <nav class="nav">
+        <button class="nav-item active"><span>◈</span> Incident Copilot</button>
+        <button class="nav-item"><span>▱</span> Runbook Vault</button>
+        <button class="nav-item"><span>⌁</span> Audit Trail</button>
+      </nav>
+
+      <section class="upload-panel">
+        <div class="eyebrow">PRIVATE KNOWLEDGE</div>
+        <h3>Runbook Vault</h3>
+        <p>Upload and append SOPs, postmortems, architecture notes and troubleshooting guides to the existing Pinecone knowledge base.</p>
+        <label class="dropzone" for="fileInput">
+          <input id="fileInput" type="file" accept=".pdf,.txt,.md,.docx" />
+          <span class="upload-icon">⇧</span>
+          <strong id="fileLabel">Choose runbook</strong>
+          <small>PDF · TXT · MD · DOCX</small>
+        </label>
+        <button id="uploadBtn" class="secondary-btn">Add to knowledge base</button>
+        <div id="uploadStatus" class="status"></div>
+      </section>
+
+      <div class="rail-footer">
+        <span class="live-dot"></span>
+        <div><strong>Self-RAG Engine</strong><small>Pinecone + OpenAI + Tavily + SQLite</small></div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">PRODUCTION RELIABILITY</div>
+          <h1>Incident Response Console</h1>
+          <p>Ground every troubleshooting decision in private operational evidence — or verified internet context when the runbooks fall short.</p>
+        </div>
+        <div class="engine-pill"><span class="pulse"></span> SELF-RAG ONLINE</div>
+      </header>
+
+      <section class="metrics">
+        <article><span>01</span><div><strong>Retrieve</strong><small>Private runbooks first</small></div></article>
+        <article><span>02</span><div><strong>Grade</strong><small>Keep relevant evidence</small></div></article>
+        <article><span>03</span><div><strong>Verify</strong><small>IsSUP + IsUSE</small></div></article>
+        <article><span>04</span><div><strong>Remember</strong><small>SQLite thread persistence</small></div></article>
+      </section>
+
+      <section class="console">
+        <div class="console-head">
+          <div><span class="terminal-dot"></span><strong>INCIDENT SESSION</strong></div>
+          <div class="session-actions"><span id="sessionId" class="session-id">MEMORY / LIVE</span><button id="newSessionBtn" class="new-session-btn">New Session</button></div>
+        </div>
+
+        <div id="messages" class="messages">
+          <div class="message assistant">
+            <div class="avatar">S</div>
+            <div class="message-body">
+              <div class="message-label">CLOUDOPS SENTINEL</div>
+              <div class="bubble intro">
+                Describe a production symptom, deployment failure, infrastructure alert, or cloud incident. I’ll remember this incident across follow-up questions, check private runbooks first, and use internet search only when internal evidence is insufficient.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="starterPrompts" class="starters">
+          <button data-q="Our checkout API is returning 502 errors after deployment. What should the on-call engineer check first?">502 after deployment</button>
+          <button data-q="CPU on the payments service is above 90%. What is our recommended response procedure?">High CPU incident</button>
+          <button data-q="What should I verify when a Kubernetes pod keeps restarting with CrashLoopBackOff?">CrashLoopBackOff</button>
+        </div>
+
+        <div class="composer-wrap">
+          <div class="composer">
+            <textarea id="question" rows="2" placeholder="Describe the incident or ask an operations question..."></textarea>
+            <button id="sendBtn" title="Run Self-RAG">➜</button>
+          </div>
+          <div class="composer-note"><span>SQLite conversation memory enabled</span><span>•</span><span>Private evidence prioritized</span><span>•</span><span>Internet search activates only when needed</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+<script src="/static/app.js"></script>
+</body>
+</html>
